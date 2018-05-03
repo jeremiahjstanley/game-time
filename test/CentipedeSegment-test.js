@@ -1,5 +1,6 @@
 const chai = require('chai');
 const assert = chai.assert;
+const CentipedeSegment = require('../lib/CentipedeSegment.js')
 
 describe('CentipedeSegment', function() { 
   it('Should be a constructor', function() {
