@@ -3,3 +3,16 @@
   margin: auto;
   display: block;
 }
+
+h2 {
+  display: inline;
+}
+
+.start-button {
+  margin: auto 0;
+}
+
+header {
+  margin: auto;
+  text-align: center;
+}
