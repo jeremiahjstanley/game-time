@@ -21,7 +21,6 @@ describe('CentipedeSegment', function() {
     //assert
     assert.equal(actualX, expectedX);
     assert.equal(actualY, expectedY);
-
   });
 
   it('Should have a radius', function () {
