@@ -24,6 +24,43 @@ describe('CentipedeSegment', function() {
 
   });
 
-  it('Should have a ')
+  it('Should have a radius', function () {
+    //setup
+    const centipedeSegment = new CentipedeSegment();
+    const expectedRadius = this.radius;
+
+    //execution
+    const actualRadius = CentipedeSegment.radius;
+
+    //assert
+    assert.equal(actualRadius, expectedRadius);
+
+  })
+
+  it('Should have a color', function () {
+    //setup
+    const centipedeSegment = new CentipedeSegment();
+    const expectedColor = this.color;
+
+    //execution
+    const actualColor = CentipedeSegment.color;
+
+    //assert
+    assert.equal(actualColor, expectedColor)
+
+  })
+
+  it('should have a x-velocity', function() {
+    //setup
+    const centipedeSegment = new CentipedeSegment();
+    const expectedDx = this.dx;
+
+    //execution
+    const actualDx = CentipedeSegment.dx;
+
+    //assert
+    assert.equal(actualDx, expectedDx)
+
+  })
 
 });
