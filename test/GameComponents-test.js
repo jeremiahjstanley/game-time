@@ -32,7 +32,7 @@ describe('Game Components', function() {
     it('Should have a color', function () {
       const expectedColor = 'red';
 
-      const actualColor = GameComponents.color;
+      const actualColor = gameComponents.color;
 
       assert.equal(actualColor, 'red')
     });
