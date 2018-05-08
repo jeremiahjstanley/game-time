@@ -1,5 +1,6 @@
 body {
   font-family: Open Sans, Sans-Serif;
+  background-color: #F5FFFF;
 }
 
 header {
@@ -9,34 +10,48 @@ header {
 
 #canvas {
   grid-row: 2;
+  background-color: #FFFFFF;
   border: 10px solid #2A2F45;
   margin: auto;
   display: block;
 }
 
+article {
+  display: flex;
+  justify-content: space-between;
+}
+
 h1{
   text-align: center;
+  color: #2A2F45;
 }
 
 h2 {
   display: inline;
+  color: #BD1147;
+}
+
+p {
+  font-weight: 600;
+  color: #2A2F45;
 }
 
 .start-button {
   margin: auto 0;
-  background-color: #929497;
+  background-color: #2A2F45;
   border: 0;
   border-radius: 18px;
   color: #FFFFFF;
   text-align: center;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   height: 10%;
   padding: 10px 0px 10px 0px;
   width: 25%;
 }
 
 .start-button:hover {
+  background-color: #003A5F;
 
 }
 
