@@ -21,7 +21,6 @@ describe('GameComponents', function() {
     //assert
     assert.equal(actualX, expectedX);
     assert.equal(actualY, expectedY);
-
   });
 
   it('Should have a radius', function () {
@@ -34,9 +33,7 @@ describe('GameComponents', function() {
 
     //assert
     assert.equal(actualRadius, expectedRadius);
-
   });
-
 
   it('Should have a color', function () {
     //setup
@@ -48,7 +45,6 @@ describe('GameComponents', function() {
 
     //assert
     assert.equal(actualColor, expectedColor)
-
   });
 
   it('should have a x-velocity', function() {
@@ -61,7 +57,6 @@ describe('GameComponents', function() {
 
     //assert
     assert.equal(actualDx, expectedDx)
-
   });
 
   it('should have a y-velocity', function() {
@@ -74,9 +69,6 @@ describe('GameComponents', function() {
 
     //assert
     assert.equal(actualDy, expectedDy)
-
   });
-
-   
 
 });

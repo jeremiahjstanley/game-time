@@ -21,7 +21,6 @@ describe('Shooter', function() {
     //assert
     assert.equal(actualX, expectedX);
     assert.equal(actualY, expectedY);
-
   });
 
   it('should have a radius', function () {
@@ -34,9 +33,7 @@ describe('Shooter', function() {
 
     //assert
     assert.equal(actualRadius, expectedRadius);
-
   });
-
 
   it('should have a color', function () {
     //setup
@@ -48,7 +45,6 @@ describe('Shooter', function() {
 
     //assert
     assert.equal(actualColor, expectedColor)
-
   });
 
   it('should have a x-velocity', function() {
@@ -61,7 +57,6 @@ describe('Shooter', function() {
 
     //assert
     assert.equal(actualDx, expectedDx)
-
   });
 
   it('should have a y-velocity', function() {
@@ -74,7 +69,6 @@ describe('Shooter', function() {
 
     //assert
     assert.equal(actualDy, expectedDy)
-
   });
 
   it('should have the ability to shoot', function() {
@@ -87,6 +81,7 @@ describe('Shooter', function() {
     shooter.shoot();
 
     //assert
+    assert.isFunction(shooter.shoot)
     assert.equal(shooter.bullets.length, 3);
   });
 

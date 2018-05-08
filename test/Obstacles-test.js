@@ -4,7 +4,6 @@ const Obstacles = require('../lib/Obstacles.js');
 
 global.canvas = {width: 500, height: 500}
 
-
 describe('Obstacles', function() { 
   it('should be a constructor', function() {
     //setup
@@ -71,7 +70,7 @@ describe('Obstacles', function() {
     const actualDy = Obstacles.dy;
 
     //assert
-    assert.equal(actualDy, expectedDy)
+    assert.equal(actualDy, expectedDy);
   });
 
   it('should create an array of mushrooms', function() {
@@ -82,6 +81,7 @@ describe('Obstacles', function() {
     obstacles.createMushroomsArray();
 
     //assert
+    assert.isFunction(obstacles.createMushroomsArray)
     assert.equal(obstacles.mushrooms.length, 50);
   });
 
@@ -93,7 +93,7 @@ describe('Obstacles', function() {
     obstacles.addNewMushroomToArray(obstacles.x, obstacles.y);
 
     //assert
-    assert.equal(obstacles.mushrooms.length, 1)
+    assert.equal(obstacles.mushrooms.length, 1);
   });
 
   it('should be able to instantiate a spider', function() {
@@ -104,6 +104,7 @@ describe('Obstacles', function() {
     obstacles.hatchSpider();
 
     //assert
+    assert.isFunction(obstacles.hatchSpider)
     assert.equal(obstacles.spiders.length, 1);
     assert.equal(obstacles.spiders[0].dx, 100);
   });
@@ -116,7 +117,7 @@ describe('Obstacles', function() {
     obstacles.hatchSpider();
 
     //assert
-    assert.equal(obstacles.spiderStartingPositions.length, 30)
+    assert.equal(obstacles.spiderStartingPositions.length, 30);
   });
 
   it('should be able to reinstantiate a spider when spiders array is 0', function() {
@@ -127,6 +128,7 @@ describe('Obstacles', function() {
     obstacles.rehatchSpider();
 
     //assert
+    assert.isFunction(obstacles.rehatchSpider)
     assert.equal(obstacles.spiders.length, 1);
   });
 
