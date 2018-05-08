@@ -77,7 +77,7 @@ describe('Shooter', function() {
 
   });
 
-    it('should have the ability to shoot', function() {
+  it('should have the ability to shoot', function() {
     //setup
     const shooter = new Shooter(0, 0, 1, 'red', 1, 1);
 
