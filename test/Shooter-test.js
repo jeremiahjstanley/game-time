@@ -3,86 +3,63 @@ const assert = chai.assert;
 const Shooter = require('../lib/Shooter.js');
 
 describe('Shooter', function() { 
-  it('should be a constructor', function() {
-    //setup
-    const shooter = new Shooter();
-  });
+  let shooter;
+  describe('should be a constructor', function() {
+  
+    beforeEach(() => {
+      shooter = new Shooter(0, 0, 1, 'red', 1, 1);
+    });
 
-  it('should have an x and y coordinate', function() {
-    //setup
-    const shooter = new Shooter(0, 0);
-    const expectedX = this.x;
-    const expectedY = this.y; 
+    it('should have an x and y coordinate', function() {
+      const expectedX = 0;
+      const expectedY = 0; 
 
-    //execution
-    const actualX = Shooter.x;
-    const actualY = Shooter.y;
-    
-    //assert
-    assert.equal(actualX, expectedX);
-    assert.equal(actualY, expectedY);
-  });
+      const actualX = shooter.x;
+      const actualY = shooter.y;
+      
+      assert.equal(actualX, 0);
+      assert.equal(actualY, 0);
+    });
 
-  it('should have a radius', function () {
-    //setup
-    const shooter = new Shooter(0, 0, 1);
-    const expectedRadius = this.radius;
+    it('should have a radius', function () {
+      const expectedRadius = 1;
 
-    //execution
-    const actualRadius = Shooter.radius;
+      const actualRadius = shooter.radius;
 
-    //assert
-    assert.equal(actualRadius, expectedRadius);
-  });
+      assert.equal(actualRadius, 1);
+    });
 
-  it('should have a color', function () {
-    //setup
-    const shooter = new Shooter(0, 0, 1, 'red');
-    const expectedColor = this.color;
+    it('should have a color', function () {
+      const expectedColor = 'red';
 
-    //execution
-    const actualColor = Shooter.color;
+      const actualColor = shooter.color;
 
-    //assert
-    assert.equal(actualColor, expectedColor)
-  });
+      assert.equal(actualColor, 'red');
+    });
 
-  it('should have a x-velocity', function() {
-    //setup
-    const shooter = new Shooter(0, 0, 1, 'red', 1, 1);
-    const expectedDx = this.dx;
+    it('should have a x-velocity', function() {
+      const expectedDx = 1;
 
-    //execution
-    const actualDx = Shooter.dx;
+      const actualDx = shooter.dx;
 
-    //assert
-    assert.equal(actualDx, expectedDx)
-  });
+      assert.equal(actualDx, 1);
+    });
 
-  it('should have a y-velocity', function() {
-    //setup
-    const shooter = new Shooter(0, 0, 1, 'red', 1, 1);
-    const expectedDy = this.dy;
+    it('should have a y-velocity', function() {
+      const expectedDy = 1;
 
-    //execution
-    const actualDy = Shooter.dy;
+      const actualDy = shooter.dy;
 
-    //assert
-    assert.equal(actualDy, expectedDy)
-  });
+      assert.equal(actualDy, 1);
+    });
 
-  it('should have the ability to shoot', function() {
-    //setup
-    const shooter = new Shooter(0, 0, 1, 'red', 1, 1);
+    it('should have the ability to shoot', function() {
+      shooter.shoot();
+      shooter.shoot();
+      shooter.shoot();
 
-    //execution
-    shooter.shoot();
-    shooter.shoot();
-    shooter.shoot();
-
-    //assert
-    assert.isFunction(shooter.shoot)
-    assert.equal(shooter.bullets.length, 3);
-  });
-
+      assert.isFunction(shooter.shoot);
+      assert.equal(shooter.bullets.length, 3);
+    });
+  })
 });

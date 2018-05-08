@@ -2,98 +2,79 @@ const chai = require('chai');
 const assert = chai.assert;
 const Centipede = require('../lib/Centipede.js')
 
-describe('Centipede', function() { 
-  it('Should be a constructor', function() {
-    //setup
-    const centipede = new Centipede();
+describe('Centipede', function() {
+  let centipede;
+  describe('Centipede constructor', function() {
+
+    beforeEach(() => {
+      centipede = new Centipede(0, 0, 5, 'red', 1, 1);
+    });
+
+    it('Should have an x and y coordinate', function() {
+      const expectedX = 0;
+      const expectedY = 0; 
+
+      const actualX = centipede.x;
+      const actualY = centipede.y;
+      
+      assert.equal(actualX, 0);
+      assert.equal(actualY, 0);
+    });
+
+    it('Should have a radius', function () {
+      const expectedRadius = 5;
+
+      const actualRadius = centipede.radius;
+
+      assert.equal(actualRadius, 5);
+    });
+
+    it('Should have a diameter', function () {
+      const expectedDiameter = 10;
+
+      const actualDiameter = centipede.diameter;
+
+      assert.equal(actualDiameter, 10);
+    });
+
+    it('Should have a color', function () {
+      const expectedColor = 'red'
+
+      const actualColor = centipede.color;
+
+      assert.equal(actualColor, 'red');
+    });
+
+    it('should have a segments array', function() {
+      const centipede = new Centipede(0, 0, 5, 'red', 1, 1);
+      const expectedSegementsArray = [ ]
+
+      const actualSegementsArray = centipede.segments;
+
+      assert.deepEqual(actualSegementsArray, [ ]);
+    });
   });
 
-  it('Should have an x and y coordinate', function() {
-    //setup
-    const centipede = new Centipede(0, 0);
-    const expectedX = this.x;
-    const expectedY = this.y; 
+  describe ('Centipede constructor methods', function() {
 
-    //execution
-    const actualX = Centipede.x;
-    const actualY = Centipede.y;
-    
-    //assert
-    assert.equal(actualX, expectedX);
-    assert.equal(actualY, expectedY);
-  });
+    beforeEach(()=> {
+      centipede = new Centipede(0, 0, 5, 'red', 1, 1);
+    });
 
-  it('Should have a radius', function () {
-    //setup
-    const centipede = new Centipede(0, 0, 5);
-    const expectedRadius = this.radius;
+    it('should have the ability to add segments to the centipede array', function() {
+      centipede.addSegmentsToCentipedeArray();
 
-    //execution
-    const actualRadius = Centipede.radius;
-
-    //assert
-    assert.equal(actualRadius, expectedRadius);
-  });
-
-  it('Should have a diameter', function () {
-    //setup
-    const centipede = new Centipede(0, 0, 5);
-    const expectedDiameter = this.diameter;
-
-    //execution
-    const actualDiameter = Centipede.diameter;
-
-    //assert
-    assert.equal(expectedDiameter, expectedDiameter);
-  });
-
-  it('Should have a color', function () {
-    //setup
-    const centipede = new Centipede(0, 0, 5, 'red');
-    const expectedColor = this.color;
-
-    //execution
-    const actualColor = Centipede.color;
-
-    //assert
-    assert.equal(actualColor, expectedColor);
-  });
-
-  it('should have a segments array', function() {
-    //setup
-    const centipede = new Centipede(0, 0, 5, 'red', 1, 1);
-    const expectedSegementsArray = this.segments;
-
-    //execution
-    const actualSegementsArray = Centipede.segments;
-
-    //assert
-    assert.equal(expectedSegementsArray, actualSegementsArray);
-  });
-
-  it('should have the ability to add segments to the centipede array', function() {
-    //setup
-    const centipede = new Centipede(0, 0, 5, 'red', 1, 1);
-
-    //execution
-    centipede.addSegmentsToCentipedeArray();
-
-    //assert
-    assert.isFunction(centipede.addSegmentsToCentipedeArray);
-    assert.equal(centipede.segments.length, 20);
-  });
+      assert.isFunction(centipede.addSegmentsToCentipedeArray);
+      assert.equal(centipede.segments.length, 20);
+    });
 
     it('should have the ability to move', function() {
-    //setup
     const centipede = new Centipede(0, 0, 5, 'red', 1, 1);
-
-    //execution
     centipede.addSegmentsToCentipedeArray();
     centipede.move();
 
-    //assert
     assert.isFunction(centipede.move);
     assert.equal(centipede.segments[0].x, 15);
+    });
   });
-
 });
