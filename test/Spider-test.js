@@ -3,9 +3,9 @@ const assert = chai.assert;
 const Spider = require('../lib/Spider.js');
 
 
-describe('Spider constructor', function() {
+describe('Spider', function() {
   let spider;
-  describe('Spider', function() { 
+  describe('Spider constructor', function() { 
 
     beforeEach(() => {
       spider = new Spider(0, 0, 1, 'red', 1, 1)
