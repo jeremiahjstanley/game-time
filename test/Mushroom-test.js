@@ -2,49 +2,38 @@ const chai = require('chai');
 const assert = chai.assert;
 const Mushroom = require('../lib/Mushroom.js');
 
-describe('Mushroom', function() { 
-  it('Should be a constructor', function() {
-    //setup
-    const mushroom = new Mushroom();
-  });
+describe('Mushroom constructor', function() { 
+  let mushroom;
+  describe('Mushroom', function() {
+    beforeEach(() => {
+      mushroom = new Mushroom(0, 0, 1, 'red')
+    })
 
-  it('Should have an x and y coordinate', function() {
-    //setup
-    const mushroom = new Mushroom(0, 0);
-    const expectedX = this.x;
-    const expectedY = this.y; 
+    it('Should have an x and y coordinate', function() {
+      const expectedX = 0;
+      const expectedY = 0; 
 
-    //execution
-    const actualX = Mushroom.x;
-    const actualY = Mushroom.y;
+      const actualX = mushroom.x;
+      const actualY = mushroom.y;
     
-    //assert
-    assert.equal(actualX, expectedX);
-    assert.equal(actualY, expectedY);
-  });
+      assert.equal(actualX, 0);
+      assert.equal(actualY, 0);
+    });
 
-  it('Should have a radius', function () {
-    //setup
-    const mushroom = new Mushroom(0, 0, 1);
-    const expectedRadius = this.radius;
+    it('Should have a radius', function () {
+      const expectedRadius = 1;
 
-    //execution
-    const actualRadius = Mushroom.radius;
+      const actualRadius = mushroom.radius;
 
-    //assert
-    assert.equal(actualRadius, expectedRadius);
-  });
+      assert.equal(actualRadius, 1);
+    });
 
-  it('Should have a color', function () {
-    //setup
-    const mushroom = new Mushroom(0, 0, 1, 'red');
-    const expectedColor = this.color;
+    it('Should have a color', function () {
+      const expectedColor = 'red';
 
-    //execution
-    const actualColor = Mushroom.color;
+      const actualColor = mushroom.color;
 
-    //assert
-    assert.equal(actualColor, expectedColor)
-  });
-
-});
+      assert.equal(actualColor, 'red')
+    });
+  })
+})

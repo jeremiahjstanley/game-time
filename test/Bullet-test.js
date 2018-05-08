@@ -2,75 +2,76 @@ const chai = require('chai');
 const assert = chai.assert;
 const Bullet = require('../lib/Bullet.js');
 
-describe ('Bullet', function() {
-  it('Should be a constructor', function() {
-    //setup
-    const bullet = new Bullet();
-  });
 
-  it('Should have an x and y coordinate', function () {
-    //setup
-    const bullet = new Bullet(0, 0);
-    const expectedX = this.x;
-    const expectedY = this.y;
+describe('Bullet constructor', function() {
+  let bullet;
+  describe ('Bullet', function() {
 
-    //execution
-    const actualX = Bullet.x;
-    const actualY = Bullet.y;
+    beforeEach(() => {
+      bullet = new Bullet(0, 0, 1, 'red', 1, 1);
+      // let args = { x: 0, y: 0, radius: 1, color: 'red', dx: 1, dy: 1};
+      // let {x, y, radius, color, dx, dy} = args;
+    }); 
 
-    //assert
-    assert.equal(actualX, expectedX);
-    assert.equal(actualY, expectedY);
-  });
+    it('Should have an x and y coordinate', function () {
+      const expectedX = 0;
+      const expectedY = 0;
 
-  it('Should have a radius', function() {
-    //setup
-    const bullet = new Bullet(0, 0, 1);
-    const expectedRadius = this.radius;
+      const actualX = bullet.x;
+      const actualY = bullet.y;
 
-    //execution
-    const actualRadius = Bullet.radius;
+      assert.equal(actualX, 0);
+      assert.equal(actualY, 0);
+    });
 
-    //assert
-    assert.equal(actualRadius, expectedRadius)
+    it('Should have a radius', function() {
+      const expectedRadius = this.radius;
+
+      const actualRadius = 1;
+
+      assert.equal(actualRadius, 1);
+    });
+
+    it('Should have a color', function() {
+      const expectedColor = 'red';
+
+      const actualColor = bullet.color;
+
+      assert.equal(actualColor, 'red');
+    });
+
+    it('Should have an x-velocity and y-velocity', function() {
+      const expectedDx = 1;
+      const expectedDy = 1;
+
+      const actualDx = bullet.dx;
+      const actualDy = bullet.dy;
+
+      assert.equal(actualDx, 1);
+      assert.equal(actualDy, 1);
+    });
+})
+
+describe('methods of bullet constructor', function () {
+
+    beforeEach(() => {
+      bullet = new Bullet(0, 495, 1, 'red', 1, 1);
+      // let args = { x: 0, y: 0, radius: 1, color: 'red', dx: 1, dy: 1};
+      // let {x, y, radius, color, dx, dy} = args;
+    });
+
+    it('Should be able to move', function() {
+      bullet.move();
+
+      assert.isFunction(bullet.move);
+      assert.equal(bullet.y, 494);
+    });
+
+    it('Should be able to continuously move', function() {
+      bullet.move();
+      bullet.move();
+
+      assert.equal(bullet.y, 493);
+    });
   })
-
-  it('Should have a color', function() {
-    //setup
-    const bullet = new Bullet(0, 0, 1, 'red');
-    const expectedColor = this.color;
-
-    //execution
-    const actualColor = Bullet.color;
-
-    //assert
-    assert.equal(actualColor, expectedColor)
-  })
-
-  it('Should have an x-velocity and y-velocity', function() {
-    //setup
-    const bullet = new Bullet(0, 0, 1, 'red', 1, 1);
-    const expectedDx = this.dx;
-    const expectedDy = this.dy;
-
-    //execution
-    const actualDx = Bullet.dx;
-    const actualDy = Bullet.dy;
-
-    //assert
-    assert.equal(actualDx, expectedDx);
-    assert.equal(actualDy, expectedDy);
-  })
-
-  it('Should be able to move', function() {
-    //setup
-    const bullet = new Bullet(0, 495, 1, 'red', 1, 1);
-
-    //execution
-    bullet.move();
-
-    //assert
-    assert.isFunction(bullet.move);
-    assert.equal(bullet.y, 494);
-  })
-});
+})
