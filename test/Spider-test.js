@@ -10,7 +10,7 @@ describe('Spider', function() {
 
   it('Should have an x and y coordinate', function() {
     //setup
-    const spider = new Spider();
+    const spider = new Spider(0, 0);
     const expectedX = this.x;
     const expectedY = this.y; 
 
@@ -26,7 +26,7 @@ describe('Spider', function() {
 
   it('Should have a radius', function () {
     //setup
-    const spider = new Spider();
+    const spider = new Spider(0, 0, 1);
     const expectedRadius = this.radius;
 
     //execution
@@ -37,22 +37,10 @@ describe('Spider', function() {
 
   });
 
-  it('Should have a diameter', function () {
-    //setup
-    const spider = new Spider();
-    const expectedDiameter = this.diameter;
-
-    //execution
-    const actualDiameter = Spider.diameter;
-
-    //assert
-    assert.equal(expectedDiameter, expectedDiameter);
-
-  });
 
   it('Should have a color', function () {
     //setup
-    const spider = new Spider();
+    const spider = new Spider(0, 0, 1, 'red');
     const expectedColor = this.color;
 
     //execution
@@ -63,10 +51,36 @@ describe('Spider', function() {
 
   });
 
+  it('should have a x-velocity', function() {
+    //setup
+    const spider = new Spider(0, 0, 1, 'red', 1, 1);
+    const expectedDx = this.dx;
+
+    //execution
+    const actualDx = Spider.dx;
+
+    //assert
+    assert.equal(actualDx, expectedDx)
+
+  });
+
+  it('should have a y-velocity', function() {
+    //setup
+    const spider = new Spider(0, 0, 1, 'red', 1, 1);
+    const expectedDy = this.dy;
+
+    //execution
+    const actualDy = Spider.dy;
+
+    //assert
+    assert.equal(actualDy, expectedDy)
+
+  });
+
 
     it('should have the ability to move', function() {
     //setup
-    const spider = new Spider();
+    const spider = new Spider(0, 0, 1, 'red', 1, 1);
 
     //execution
     spider.move();

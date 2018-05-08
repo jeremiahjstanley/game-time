@@ -10,7 +10,7 @@ describe('Centipede', function() {
 
   it('Should have an x and y coordinate', function() {
     //setup
-    const centipede = new Centipede();
+    const centipede = new Centipede(0, 0);
     const expectedX = this.x;
     const expectedY = this.y; 
 
@@ -26,7 +26,7 @@ describe('Centipede', function() {
 
   it('Should have a radius', function () {
     //setup
-    const centipede = new Centipede();
+    const centipede = new Centipede(0, 0, 1);
     const expectedRadius = this.radius;
 
     //execution
@@ -39,7 +39,7 @@ describe('Centipede', function() {
 
   it('Should have a diameter', function () {
     //setup
-    const centipede = new Centipede();
+    const centipede = new Centipede(0, 0, 1);
     const expectedDiameter = this.diameter;
 
     //execution
@@ -52,7 +52,7 @@ describe('Centipede', function() {
 
   it('Should have a color', function () {
     //setup
-    const centipede = new Centipede();
+    const centipede = new Centipede(0, 0, 1, 'red');
     const expectedColor = this.color;
 
     //execution
@@ -65,7 +65,7 @@ describe('Centipede', function() {
 
   it('should have a segments array', function() {
     //setup
-    const centipede = new Centipede();
+    const centipede = new Centipede(0, 0, 1, 'red', 1, 1);
     const expectedSegementsArray = this.segments;
 
     //execution
@@ -78,7 +78,7 @@ describe('Centipede', function() {
 
   it('should have the ability to add segments to the centipede array', function() {
     //setup
-    const centipede = new Centipede();
+    const centipede = new Centipede(0, 0, 1, 'red', 1, 1);
 
     //execution
     centipede.addSegmentsToCentipedeArray()
@@ -89,14 +89,14 @@ describe('Centipede', function() {
 
     it('should have the ability to move', function() {
     //setup
-    const centipede = new Centipede();
+    const centipede = new Centipede(0, 0, 1, 'red', 1, 1);
 
     //execution
     centipede.addSegmentsToCentipedeArray()
     centipede.move()
 
     //assert
-    assert.equal(centipede.segments[0].x, 3)
+    assert.equal(centipede.segments[0].x, 6)
   });
 
 });
