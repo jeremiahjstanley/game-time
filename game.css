@@ -10,7 +10,7 @@ header {
   text-align: center;
 }
 
-#game {
+#canvas {
   grid-row: 2;
   border: 10px solid;
   margin: auto;
