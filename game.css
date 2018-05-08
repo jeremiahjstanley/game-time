@@ -1,6 +1,6 @@
 body {
-  font-family: Open Sans, Sans-Serif;
   background-color: #F5FFFF;
+  font-family: Open Sans, Sans-Serif;
 }
 
 header {
@@ -9,11 +9,10 @@ header {
 }
 
 #canvas {
-  grid-row: 2;
   background-color: #FFFFFF;
   border: 10px solid #2A2F45;
-  margin: auto;
   display: block;
+  margin: auto;
 }
 
 article {
@@ -22,37 +21,34 @@ article {
 }
 
 h1{
-  text-align: center;
   color: #2A2F45;
+  text-align: center;
 }
 
 h2 {
-  display: inline;
   color: #BD1147;
+  display: inline;
 }
 
 p {
-  font-weight: 600;
   color: #2A2F45;
+  font-weight: 600;
 }
 
 .start-button {
-  margin: auto 0;
   background-color: #2A2F45;
-  border: 0;
   border-radius: 18px;
+  border: 0;
   color: #FFFFFF;
-  text-align: center;
   font-size: 16px;
   font-weight: 400;
   height: 10%;
+  margin: auto 0;
   padding: 10px 0px 10px 0px;
+  text-align: center;
   width: 25%;
 }
 
 .start-button:hover {
   background-color: #003A5F;
-
 }
-
-header {
