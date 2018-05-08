@@ -21,7 +21,6 @@ describe('Centipede', function() {
     //assert
     assert.equal(actualX, expectedX);
     assert.equal(actualY, expectedY);
-
   });
 
   it('Should have a radius', function () {
@@ -34,7 +33,6 @@ describe('Centipede', function() {
 
     //assert
     assert.equal(actualRadius, expectedRadius);
-
   });
 
   it('Should have a diameter', function () {
@@ -47,7 +45,6 @@ describe('Centipede', function() {
 
     //assert
     assert.equal(expectedDiameter, expectedDiameter);
-
   });
 
   it('Should have a color', function () {
@@ -60,7 +57,6 @@ describe('Centipede', function() {
 
     //assert
     assert.equal(actualColor, expectedColor);
-
   });
 
   it('should have a segments array', function() {
@@ -73,7 +69,6 @@ describe('Centipede', function() {
 
     //assert
     assert.equal(expectedSegementsArray, actualSegementsArray);
-
   });
 
   it('should have the ability to add segments to the centipede array', function() {

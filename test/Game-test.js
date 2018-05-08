@@ -168,7 +168,6 @@ describe('Game', function() {
     assert.equal(game.centipede.segments[0].dx, -10);
   });
 
-
 it('Should have the ability detect collisions between shooter and mushrooms', function() {
     //setup
     const game = new Game();
@@ -191,7 +190,7 @@ it('Should have the ability to move shooter', function() {
     const game = new Game();
 
     //execution
-    game.initialize()
+    game.initialize();
     game.moveShooter('up');
 
     //assert
@@ -204,7 +203,7 @@ it('Should have the ability to move bullets', function() {
     const game = new Game();
 
     //execution
-    game.initialize()
+    game.initialize();
 
     //assert
     assert.isFunction(game.moveBullets);
@@ -223,7 +222,6 @@ it('Should have the ability to detect collisions between spiders and bullets', f
     game.shooter.bullets[0].y = 460;
     gameStep(1, game);
 
-
     //assert
     assert.isFunction(game.detectBulletSpiderCollision);
     assert.equal(game.shooter.bullets.length, 0);
@@ -231,22 +229,18 @@ it('Should have the ability to detect collisions between spiders and bullets', f
     assert.equal(game.score, 500);
   });
 
-it.skip('Should have the ability to detect collisions between centipede and bullets', function() {
+it('Should have the ability to detect collisions between centipede and bullets', function() {
     //setup
     const game = new Game();
 
     //execution
     game.initialize();
-    game.centipede.segments[0].x = 50;
-    game.centipede.segments[0].y = 450;
+    game.centipede.segments[0].x = 255;
+    game.centipede.segments[0].y = 485;
     game.shooter.shoot();
-    console.log(game.shooter.bullets[0].y)
-    game.shooter.bullets[0].x = 50;
-    game.shooter.bullets[0].y = 485;
-    // game.shooter.bullets[0].bullet.move();
-    console.log(game.shooter.bullets[0].y)
-    // gameStep(1, game);
-
+    game.shooter.bullets[0].x = 265
+    game.shooter.bullets[0].y = 485
+    gameStep(1, game);
 
     //assert
     assert.isFunction(game.detectBulletSpiderCollision);
@@ -298,6 +292,5 @@ it('Should have the ability to detect collisions between the shooter and spider'
     assert.equal(game.lives, 4);
     assert.equal(game.score, -250);
   });
-
 
 });

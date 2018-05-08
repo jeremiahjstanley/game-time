@@ -21,7 +21,6 @@ describe('Mushroom', function() {
     //assert
     assert.equal(actualX, expectedX);
     assert.equal(actualY, expectedY);
-
   });
 
   it('Should have a radius', function () {
@@ -34,9 +33,7 @@ describe('Mushroom', function() {
 
     //assert
     assert.equal(actualRadius, expectedRadius);
-
   });
-
 
   it('Should have a color', function () {
     //setup
@@ -48,10 +45,6 @@ describe('Mushroom', function() {
 
     //assert
     assert.equal(actualColor, expectedColor)
-
   });
-
-
-   
 
 });

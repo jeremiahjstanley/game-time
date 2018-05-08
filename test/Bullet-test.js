@@ -64,12 +64,13 @@ describe ('Bullet', function() {
 
   it('Should be able to move', function() {
     //setup
-    const bullet = new Bullet(0, 0, 1, 'red', 1, 1);
+    const bullet = new Bullet(0, 495, 1, 'red', 1, 1);
 
     //execution
     bullet.move();
 
     //assert
-    assert.equal(bullet.y, 0)
+    assert.isFunction(bullet.move);
+    assert.equal(bullet.y, 494);
   })
 });

@@ -33,8 +33,7 @@ describe('CentipedeSegment', function() {
 
     //assert
     assert.equal(actualRadius, expectedRadius);
-
-  })
+  });
 
   it('Should have a color', function () {
     //setup
@@ -46,8 +45,7 @@ describe('CentipedeSegment', function() {
 
     //assert
     assert.equal(actualColor, expectedColor)
-
-  })
+  });
 
   it('should have a x-velocity', function() {
     //setup
@@ -59,7 +57,6 @@ describe('CentipedeSegment', function() {
 
     //assert
     assert.equal(actualDx, expectedDx)
-
-  })
+  });
 
 });
