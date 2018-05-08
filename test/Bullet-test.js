@@ -10,7 +10,7 @@ describe ('Bullet', function() {
 
   it('Should have an x and y coordinate', function () {
     //setup
-    const bullet = new Bullet();
+    const bullet = new Bullet(0, 0);
     const expectedX = this.x;
     const expectedY = this.y;
 
@@ -25,7 +25,7 @@ describe ('Bullet', function() {
 
   it('Should have a radius', function() {
     //setup
-    const bullet = new Bullet();
+    const bullet = new Bullet(0, 0, 1);
     const expectedRadius = this.radius;
 
     //execution
@@ -37,7 +37,7 @@ describe ('Bullet', function() {
 
   it('Should have a color', function() {
     //setup
-    const bullet = new Bullet();
+    const bullet = new Bullet(0, 0, 1, 'red');
     const expectedColor = this.color;
 
     //execution
@@ -49,7 +49,7 @@ describe ('Bullet', function() {
 
   it('Should have an x-velocity and y-velocity', function() {
     //setup
-    const bullet = new Bullet();
+    const bullet = new Bullet(0, 0, 1, 'red', 1, 1);
     const expectedDx = this.dx;
     const expectedDy = this.dy;
 
@@ -64,8 +64,7 @@ describe ('Bullet', function() {
 
   it('Should be able to move', function() {
     //setup
-    const bullet = new Bullet();
-    // const expectedMovement = bullet.move();
+    const bullet = new Bullet(0, 0, 1, 'red', 1, 1);
 
     //execution
     bullet.move();
