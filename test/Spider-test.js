@@ -2,86 +2,71 @@ const chai = require('chai');
 const assert = chai.assert;
 const Spider = require('../lib/Spider.js');
 
-describe('Spider', function() { 
-  it('Should be a constructor', function() {
-    //setup
-    const spider = new Spider();
-  });
+
+describe('Spider constructor', function() {
+  let spider;
+  describe('Spider', function() { 
+
+    beforeEach(() => {
+      spider = new Spider(0, 0, 1, 'red', 1, 1)
+    });
 
   it('Should have an x and y coordinate', function() {
-    //setup
-    const spider = new Spider(0, 0);
-    const expectedX = this.x;
-    const expectedY = this.y; 
+    const expectedX = 0;
+    const expectedY = 0; 
 
-    //execution
-    const actualX = Spider.x;
-    const actualY = Spider.y;
+    const actualX = spider.x;
+    const actualY = spider.y;
     
-    //assert
-    assert.equal(actualX, expectedX);
-    assert.equal(actualY, expectedY);
+    assert.equal(actualX, 0);
+    assert.equal(actualY, 0);
   });
 
   it('Should have a radius', function () {
-    //setup
-    const spider = new Spider(0, 0, 1);
     const expectedRadius = this.radius;
 
-    //execution
-    const actualRadius = Spider.radius;
+    const actualRadius = 1;
 
-    //assert
-    assert.equal(actualRadius, expectedRadius);
+    assert.equal(actualRadius, 1);
   });
 
   it('Should have a color', function () {
-    //setup
-    const spider = new Spider(0, 0, 1, 'red');
-    const expectedColor = this.color;
+    const expectedColor = 'red';
 
-    //execution
-    const actualColor = Spider.color;
+    const actualColor = spider.color;
 
-    //assert
-    assert.equal(actualColor, expectedColor)
+    assert.equal(actualColor, 'red');
   });
 
   it('should have a x-velocity', function() {
-    //setup
-    const spider = new Spider(0, 0, 1, 'red', 1, 1);
-    const expectedDx = this.dx;
+    const expectedDx = 1;
 
-    //execution
-    const actualDx = Spider.dx;
+    const actualDx = spider.dx;
 
-    //assert
-    assert.equal(actualDx, expectedDx)
+    assert.equal(actualDx, 1);
   });
 
   it('should have a y-velocity', function() {
-    //setup
-    const spider = new Spider(0, 0, 1, 'red', 1, 1);
-    const expectedDy = this.dy;
+    const expectedDy = 1;
 
-    //execution
-    const actualDy = Spider.dy;
+    const actualDy = spider.dy;
 
-    //assert
-    assert.equal(actualDy, expectedDy)
+    assert.equal(actualDy, 1);
   });
+})
+
+describe('methods of spider', function() {
+
+    beforeEach(() => {
+      spider = new Spider(0, 0, 1, 'red', 1, 1)
+    });
 
     it('should have the ability to move', function() {
-    //setup
-    const spider = new Spider(0, 0, 1, 'red', 1, 1);
+      spider.move();
 
-    //execution
-    spider.move();
-
-    //assert
-    assert.isFunction(spider.move)
-    assert.equal(spider.x, 1);
-    assert.equal(spider.y, 1);
-  });
-
+      assert.isFunction(spider.move)
+      assert.equal(spider.x, 1);
+      assert.equal(spider.y, 1);
+    });  
+  })
 });
