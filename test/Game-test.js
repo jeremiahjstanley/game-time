@@ -2,6 +2,8 @@ const chai = require('chai');
 const assert = chai.assert;
 const Game = require('../lib/Game.js');
 
+global.canvas = {width: 500, height: 500}
+
 describe('Game', function() { 
   it('Should be a constructor', function() {
     //setup
@@ -126,30 +128,176 @@ describe('Game', function() {
     assert.equal(distance, 5);
   });
 
+  function gameStep(number, game) {
+    for(var i = 0; i < number; i++) {
+    game.centipede.move()
+    game.obstacles.spider.move()
+    game.detectCentipedeWallCollision();
+    game.detectBulletCollision();
+    game.detectCentipedeShooterCollision();
+    game.spiderCollisionDetection();
+    game.detectShooterMushroomCollision();
+    };
+  };
+
   it('Should have the ability detect collisions between centipede and wall', function() {
     //setup
     const game = new Game();
 
     //execution
     game.initialize()
-
+    gameStep(51, game);
+      
     //assert
     assert.isFunction(game.detectCentipedeWallCollision);
-    assert.equal(game.centipede.segments[0].y, 5);
+    assert.equal(game.centipede.segments[0].y, 15);
   });
 
-    it('Should have the ability detect collisions between centipede and mushrooms', function() {
+  it('Should have the ability detect collisions between centipede and mushrooms', function() {
     //setup
     const game = new Game();
 
     //execution
     game.initialize()
-    game.detectCentipedeMushroomCollision(game.centipede.segments[0])
-    console.log(game.centipede.segments[0].dx)
+    game.obstacles.mushrooms[0].x = 15
+    game.obstacles.mushrooms[0].y = 5
+    gameStep(1, game);
 
     //assert
     assert.isFunction(game.detectCentipedeMushroomCollision);
     assert.equal(game.centipede.segments[0].dx, -10);
   });
+
+
+it('Should have the ability detect collisions between shooter and mushrooms', function() {
+    //setup
+    const game = new Game();
+
+    //execution
+    game.initialize()
+    game.obstacles.mushrooms[0].x = 255
+    game.obstacles.mushrooms[0].y = 485
+    
+    game.moveShooter('up');
+    gameStep(1, game)
+
+    //assert
+    assert.isFunction(game.detectShooterMushroomCollision);
+    assert.equal(game.shooter.y, 495);
+  });
+
+it('Should have the ability to move shooter', function() {
+    //setup
+    const game = new Game();
+
+    //execution
+    game.initialize()
+    game.moveShooter('up');
+
+    //assert
+    assert.isFunction(game.moveShooter);
+    assert.equal(game.shooter.y, 485);
+  });
+
+it('Should have the ability to move bullets', function() {
+    //setup
+    const game = new Game();
+
+    //execution
+    game.initialize()
+
+    //assert
+    assert.isFunction(game.moveBullets);
+  });
+
+it('Should have the ability to detect collisions between spiders and bullets', function() {
+    //setup
+    const game = new Game();
+
+    //execution
+    game.initialize();
+    game.obstacles.spiders[0].x = 50;
+    game.obstacles.spiders[0].y = 450;
+    game.shooter.shoot();
+    game.shooter.bullets[0].x = 50;
+    game.shooter.bullets[0].y = 460;
+    gameStep(1, game);
+
+
+    //assert
+    assert.isFunction(game.detectBulletSpiderCollision);
+    assert.equal(game.shooter.bullets.length, 0);
+    assert.equal(game.obstacles.spiders.length, 0);
+    assert.equal(game.score, 500);
+  });
+
+it.skip('Should have the ability to detect collisions between centipede and bullets', function() {
+    //setup
+    const game = new Game();
+
+    //execution
+    game.initialize();
+    game.centipede.segments[0].x = 50;
+    game.centipede.segments[0].y = 450;
+    game.shooter.shoot();
+    console.log(game.shooter.bullets[0].y)
+    game.shooter.bullets[0].x = 50;
+    game.shooter.bullets[0].y = 485;
+    // game.shooter.bullets[0].bullet.move();
+    console.log(game.shooter.bullets[0].y)
+    // gameStep(1, game);
+
+
+    //assert
+    assert.isFunction(game.detectBulletSpiderCollision);
+    assert.equal(game.shooter.bullets.length, 0);
+    assert.equal(game.centipede.segments.length, 19);
+    assert.equal(game.score, 250);
+  });
+
+it('Should have the ability to detect collisions between spiders, centipede, and bullets', function() {
+    //setup
+    const game = new Game();
+
+    //assert
+    assert.isFunction(game.detectBulletCollision);
+  });
+
+it('Should have the ability to detect collisions between the shooter and centipede', function() {
+    //setup
+    const game = new Game();
+
+    //execution
+    game.initialize();
+    game.centipede.segments[0].x = 245;
+    game.centipede.segments[0].y = 495;
+    gameStep(1, game);
+
+    //assert
+    assert.isFunction(game.detectCentipedeShooterCollision);
+    assert.equal(game.shooter.x, 255);
+    assert.equal(game.shooter.y, 495);
+    assert.equal(game.lives, 4);
+    assert.equal(game.score, -100);
+  });
+
+it('Should have the ability to detect collisions between the shooter and spider', function() {
+    //setup
+    const game = new Game();
+
+    //execution
+    game.initialize();
+    game.obstacles.spiders[0].x = 245;
+    game.obstacles.spiders[0].y = 485;
+    gameStep(1, game);
+
+    //assert
+    assert.isFunction(game.detectCentipedeShooterCollision);
+    assert.equal(game.shooter.x, 255);
+    assert.equal(game.shooter.y, 495);
+    assert.equal(game.lives, 4);
+    assert.equal(game.score, -250);
+  });
+
 
 });

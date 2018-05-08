@@ -2,6 +2,9 @@ const chai = require('chai');
 const assert = chai.assert;
 const Obstacles = require('../lib/Obstacles.js');
 
+global.canvas = {width: 500, height: 500}
+
+
 describe('Obstacles', function() { 
   it('should be a constructor', function() {
     //setup
@@ -71,7 +74,7 @@ describe('Obstacles', function() {
     assert.equal(actualDy, expectedDy)
   });
 
-  it.skip('should create an array of mushrooms', function() {
+  it('should create an array of mushrooms', function() {
     //setup
     const obstacles = new Obstacles(0, 0, 1, 'red', 1, 1);
     
@@ -82,7 +85,7 @@ describe('Obstacles', function() {
     assert.equal(obstacles.mushrooms.length, 50);
   });
 
-  it('should be able to new mushroom to the array', function() {
+  it('should be able add a new mushroom to the array', function() {
     //setup
     const obstacles = new Obstacles(0, 0, 1, 'red', 1, 1);
 
