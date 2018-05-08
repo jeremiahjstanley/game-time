@@ -10,7 +10,7 @@ describe('Mushroom', function() {
 
   it('Should have an x and y coordinate', function() {
     //setup
-    const mushroom = new Mushroom(1, 1, 1, 'red');
+    const mushroom = new Mushroom(0, 0);
     const expectedX = this.x;
     const expectedY = this.y; 
 
@@ -26,7 +26,7 @@ describe('Mushroom', function() {
 
   it('Should have a radius', function () {
     //setup
-    const mushroom = new Mushroom(1, 1, 1, 'red');
+    const mushroom = new Mushroom(0, 0, 1);
     const expectedRadius = this.radius;
 
     //execution
@@ -37,22 +37,10 @@ describe('Mushroom', function() {
 
   });
 
-  it('Should have a diameter', function () {
-    //setup
-    const mushroom = new Mushroom(1, 1, 1, 'red');
-    const expectedDiameter = this.diameter;
-
-    //execution
-    const actualDiameter = Mushroom.diameter;
-
-    //assert
-    assert.equal(expectedDiameter, expectedDiameter);
-
-  });
 
   it('Should have a color', function () {
     //setup
-    const mushroom = new Mushroom(1, 1, 1, 'red');
+    const mushroom = new Mushroom(0, 0, 1, 'red');
     const expectedColor = this.color;
 
     //execution
