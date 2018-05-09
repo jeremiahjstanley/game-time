@@ -95,7 +95,7 @@ describe('Game constructor methods', function() {
 
       it('Should have the ability detect collisions between centipede and wall', function() {
         game.initialize()
-        gameStep(51, game);
+        gameStep(55, game);
           
         assert.isFunction(game.detectCentipedeWallCollision);
         assert.equal(game.centipede.segments[0].y, 15);
