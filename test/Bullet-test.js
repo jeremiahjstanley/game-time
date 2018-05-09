@@ -3,9 +3,9 @@ const assert = chai.assert;
 const Bullet = require('../lib/Bullet.js');
 
 
-describe('Bullet constructor', function() {
+describe('Bullet', function() {
   let bullet;
-  describe ('Bullet', function() {
+  describe ('Bullet constructor', function() {
 
     beforeEach(() => {
       bullet = new Bullet(0, 0, 1, 'red', 1, 1);
@@ -52,7 +52,7 @@ describe('Bullet constructor', function() {
     });
 })
 
-describe('methods of bullet constructor', function () {
+describe('Bullet constructor methods', function () {
 
     beforeEach(() => {
       bullet = new Bullet(0, 495, 1, 'red', 1, 1);

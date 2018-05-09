@@ -55,7 +55,7 @@ describe('Spider', function() {
   });
 })
 
-describe('methods of spider', function() {
+describe('Spider constructor methods', function() {
 
     beforeEach(() => {
       spider = new Spider(0, 0, 1, 'red', 1, 1)

@@ -18,7 +18,7 @@ describe('Game constructor', function() {
   it('Should be able to instantiate obstacles', function() {
     const actualObstacles = game.obstacles.x;
     
-    assert.equal(actualObstacles.x, 0);
+    assert.equal(actualObstacles, 0);
   });
 
   it('Should be able to instantiate a centipede', function() {
@@ -30,7 +30,7 @@ describe('Game constructor', function() {
   it('Should be able to instantiate a shooter', function() {
     const actualShooter = game.shooter.x;
     
-    assert.equal(actualShooter, 250);
+    assert.equal(actualShooter, 255);
   });
 
   it('Should start the player with 5 lives', function() {
@@ -50,7 +50,7 @@ describe('Game constructor', function() {
   });
 
 
-describe('Methods of game', function() {
+describe('Game constructor methods', function() {
 
     beforeEach(() => {
         beforeEach(() => {

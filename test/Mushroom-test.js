@@ -2,9 +2,9 @@ const chai = require('chai');
 const assert = chai.assert;
 const Mushroom = require('../lib/Mushroom.js');
 
-describe('Mushroom constructor', function() { 
+describe('Mushroom', function() { 
   let mushroom;
-  describe('Mushroom', function() {
+  describe('Mushroom constructor', function() {
     beforeEach(() => {
       mushroom = new Mushroom(0, 0, 1, 'red')
     })
