@@ -31,6 +31,6 @@ Run with ```npm test``` from the root directory
 * Add a second "spider" to higher levels
 
 ## Contributors
-![Jeremiah Stanley](https://github.com/jeremiahjstanley)
-![Marika Ross](https://github.com/marikaross)
+* [Jeremiah Stanley](https://github.com/jeremiahjstanley)
+* [Marika Ross](https://github.com/marikaross)
 
