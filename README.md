@@ -12,7 +12,7 @@ The objective of the game is to progess through levels by eliminating all segmen
 
 
 ## Screenshot
-<img src="https://github.com/jeremiahjstanley/game-time/blob/master/images/centipede.png" />
+<img width="500" align="center" src="https://github.com/jeremiahjstanley/game-time/blob/master/images/centipede.png" />
 
 ## Set Up
 ### Front-end
